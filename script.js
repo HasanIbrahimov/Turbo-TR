@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const payload = isRegister ? { ad_soyad: fullname, eposta: email, sifre: password } : { eposta: email, sifre: password };
 
       try {
-        const response = await fetch(`http://localhost:3000${endpoint}`, {
+        const response = await fetch(`${endpoint}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // SQLite Veritabanından ve Ekrandan Silme İşlemi
       deleteBtn.addEventListener("click", async () => {
         try {
-          const response = await fetch(`http://localhost:3000/api/notes/${id}`, { method: "DELETE" });
+          const response = await fetch(`/api/notes/${id}`, { method: "DELETE" });
           if (response.ok) {
             li.remove();
             noteCount--;
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Sayfa Yüklendiğinde Veritabanındaki Notları Getir
     const loadNotes = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/notes");
+        const response = await fetch("/api/notes");
         if (response.ok) {
           const notes = await response.json();
           noteCount = 0;
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (text === "") return;
 
       try {
-        const response = await fetch("http://localhost:3000/api/notes", {
+        const response = await fetch("/api/notes", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ content: text, userId: 1 })
