@@ -1,0 +1,173 @@
+/* Custom variables for Light Mode (Default) */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --primary-color: #e63946;
+  --navbar-bg: #212529;
+  --border-color: #dee2e6;
+  --input-bg: #ffffff;
+  --input-text: #212529;
+}
+
+/* Custom variables for Dark Mode */
+body.dark-theme {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --card-bg: #1e1e1e;
+  --navbar-bg: #000000;
+  --border-color: #333333;
+  --input-bg: #333333;
+  --input-text: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+}
+
+/* Labels */
+label {
+  color: var(--text-color);
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--navbar-bg) !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-brand, .nav-link {
+  color: #fff !important;
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title, .card-text {
+  color: var(--text-color);
+}
+
+/* List group in details */
+.list-group-item {
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+}
+
+/* Slider */
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slider-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: none;
+}
+
+.slider-img.active {
+  display: block;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+
+/* Notes App */
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: var(--text-color);
+}
+
+/* Forms */
+.form-control {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--border-color);
+}
+.form-control:focus {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(230, 57, 70, 0.25);
+}
+.form-control::placeholder {
+  color: #999;
+}
+
+/* --- Koyu Tema (Dark Mode) Özel Form Okunabilirlik Düzeltmeleri --- */
+body.dark-theme label {
+  color: #ffffff !important;
+}
+
+body.dark-theme small, 
+body.dark-theme .text-center {
+  color: #cccccc !important;
+}
+
+body.dark-theme small a {
+  color: #0d6efd !important; /* Bootstrap'in varsayılan mavi link rengini koruyoruz */
+}
+
+/* --- İlan Detay - Satıcı Bilgileri ve Kart İçi Metinler İçin Okunabilirlik --- */
+body.dark-theme .card p,
+body.dark-theme .card span,
+body.dark-theme .card div,
+body.dark-theme .card .text-muted {
+  color: #cccccc !important;
+}
